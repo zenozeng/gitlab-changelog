@@ -15,5 +15,4 @@ define("TAGS", serialize(array(
     "feature" => "Added"
 )));
 define("DEFAULT_TAG", "Fixed");
-
 ?>

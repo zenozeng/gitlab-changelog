@@ -63,5 +63,6 @@ $markdown = array_map(function($milestone) use ($issues, $milestones, $repo) {
     return $text;
 }, $milestones);
 $markdown = "# Changelog\n\n" . join($markdown, "");
-echo $markdown;
+file_put_contents(TARGET, $markdown);
+echo 'file_put_contents: ' . TARGET;
 ?>
