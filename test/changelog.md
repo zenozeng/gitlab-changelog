@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0.8_2014-07-17 - _2014-07-16T20:11:20.000+08:00_
+## v2.0.8_2014-07-17 - _2014-7-16_
 - `Fixed` [#16836] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/16836) 圈子详情展开溢出了
 - `Fixed` [#17725] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/17725) bug：搜索数据出现两个重复
 - `Fixed` [#18045] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/18045) 【团队博客】博客管理功能：批量添加成员
@@ -11,7 +11,7 @@
 - `Fixed` [#18759] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/18759) 小需求：更改圈主功能
 - `Fixed` [#18797] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/18797) bug:新创建的圈子，部分图片没有显示
 
-## v2.0.7_2014-07-10 - _2014-07-08T09:32:24.000+08:00_
+## v2.0.7_2014-07-10 - _2014-7-8_
 - `Fixed` [#14670] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14670) BUG：个人资料编辑时，上传头像，显示保存成功但是图片没有更新
 - `Fixed` [#16446] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/16446) 评论的标题不应该带上锚点
 - `Fixed` [#17352] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/17352) 数据bug：这里的用户文章数实际34篇，但显示32篇
@@ -21,13 +21,13 @@
 - `Fixed` [#17809] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/17809) bug：圈内置顶，报500（线上重新）
 - `Fixed` [#18036] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/18036) bug：文章编辑相关（第二次编辑后，再次编辑内容丢失）
 
-## v2.0.6_2014-07-03 - _2014-07-03T10:04:22.000+08:00_
+## v2.0.6_2014-07-03 - _2014-7-3_
 - `Fixed` [#11376] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11376) 1.0标签显示异常，出现空的情况
 - `Fixed` [#11451] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11451) 1.0圈内文章评论、赞数没有及时刷新
 - `Fixed` [#14858] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14858) 小需求：圈内搜索
 - `Fixed` [#17084] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/17084) bug：修改圈子图片报500错误&图片显示有误
 
-## v2.0.5 - _2014-06-26T12:07:49.000+08:00_
+## v2.0.5 - _2014-6-26_
 - `Fixed` [#10819] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/10819) 代码高亮失效
 - `Fixed` [#13997] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/13997) 2.0搜索出来的人和圈子，点击关注/加入，刷新后又可以点了
 - `Fixed` [#14974] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14974) BUG：圈PV数据统计不准
@@ -42,7 +42,7 @@
 - `Fixed` [#16947] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/16947) 文章分页页码小数
 - `Improved` [#16957] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/16957) [优化]发文时，取消标签推荐中的“原创”
 
-## v2.0.4 - _2014-06-19T15:09:16.000+08:00_
+## v2.0.4 - _2014-6-19_
 - `Fixed` [#12777] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12777) User/Model.php对r['group']为空的情况没有判断
 - `Fixed` [#14014] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14014) 2.0文章标签删除后再次添加，标签历史中不显示
 - `Fixed` [#14045] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14045) 2.0文章列表中“领域：系统研发与运维 标签：Tengine迁移” 搜索发现为空
@@ -58,7 +58,7 @@
 - `Fixed` [#16144] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/16144) 线上BUG：二级评论的两个问题：1）有新评论数，但是评论数为0；2）点赞报错如截图；3）编辑二级评论，无法保存；4,）删除评论报405错误
 - `Fixed` [#16467] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/16467) 点击关注会报Something went wrong.
 
-## v2.0.3 - _2014-06-11T15:04:50.000+08:00_
+## v2.0.3 - _2014-6-11_
 - `Fixed` [#12700] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12700) 文章的收藏功能
 - `Improved` [#13822] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/13822) 超级管理员推广页优化
 - `Improved` [#14015] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14015) 在活跃度、声望处增加说明链接
@@ -76,7 +76,7 @@
 - `Fixed` [#15940] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/15940) 用户登录验证重构
 - `Fixed` [#15941] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/15941) 部分模块重写
 
-## v2.0.2 - _2014-05-28T14:15:51.000+08:00_
+## v2.0.2 - _2014-5-28_
 - `Fixed` [#14057] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14057) 2.0不属于圈子的文章不能推荐
 - `Improved` [#14062] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14062) 2.0我的ATA中增加判断如果圈子被删除则不显示
 - `Fixed` [#14521] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14521) 个人设置页面：我的专利和著作按钮无法操作，内容无法添加；时间戳最多为2013年
@@ -84,7 +84,7 @@
 - `Fixed` [#14622] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14622) 评论翻页功能的bug
 - `Fixed` [#15098] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/15098) 回帖时，头像下方会显示一个F
 
-## v2.0.1 - _2014-05-09T16:11:26.000+08:00_
+## v2.0.1 - _2014-5-9_
 - `Fixed` [#12230] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12230) 圈子积分榜分页控件初始状态有问题
 - `Fixed` [#12559] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12559) 圈管理功能：查看圈子的访问详细数据
 - `Fixed` [#12560] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12560) 圈内邀请功能
@@ -96,7 +96,7 @@
 - `Improved` [#14544] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14544) 文章详情页面的评论区增加锚点+复制连接
 - `Fixed` [#14599] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/14599) tag缓存
 
-## v2.0.0-beta.11 - _2014-04-28T09:01:45.000+08:00_
+## v2.0.0-beta.11 - _2014-4-28_
 - `Fixed` [#10869] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/10869) 2.0feed中，2级评论如果输入重名，需要有重名选择框
 - `Improved` [#11618] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11618) 写文章时候markdown语法的帮助图标的链接建议修改一下
 - `Fixed` [#12063] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12063) 2.0动态页有部分文章点击显示全部需要点击2次才能完成展示
@@ -121,7 +121,7 @@
 - `Improved` [#13608] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/13608) 2.0评论定位由于2级评论展开导致无非定位
 - `Fixed` [#13621] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/13621) 社区广场页面：配合运营调整“最新原创”位置
 
-## v2.0.0-beta.10 - _2014-04-24T19:05:25.000+08:00_
+## v2.0.0-beta.10 - _2014-4-24_
 - `Added` [#12490] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12490) 1.0到2.0的迁移问题
 - `Added` [#12493] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12493) 2.0增加返回老版本入口
 - `Fixed` [#12760] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12760) 2.0领域搜索中，点击对应的领域由于标签重复属于同个领域，导致同一文章出现多次
@@ -131,7 +131,7 @@
 - `Improved` [#12784] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12784) 2.0圈邮件内的链接更新
 - `Fixed` [#12820] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12820) 2.0邮件中赞的场景显示的动作人链接异常
 
-## v2.0.0-beta.9 - _2014-04-17T11:09:54.000+08:00_
+## v2.0.0-beta.9 - _2014-4-17_
 - `Fixed` [#10759] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/10759) 视频自动播放处理
 - `Improved` [#10907] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/10907) 评论的子评论不应该默认折叠
 - `Fixed` [#11290] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11290) 我的ATA页面，点击展开全部，文章内容超过了边框 
@@ -141,7 +141,7 @@
 - `Added` [#12491] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12491) 启动2.0的邮件\旺旺提醒
 - `Added` [#12492] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12492) 超级管理的推广功能
 
-## v2.0.0-beta.8 - _2014-04-10T15:19:20.000+08:00_
+## v2.0.0-beta.8 - _2014-4-10_
 - `Fixed` [#11356] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11356) 2.0文章全部（按发布时间排序）显示的数目不准确
 - `Improved` [#11432] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11432) 2.0搜索文章时，markdown预发没有渲染
 - `Fixed` [#11502] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11502) 2.0个人页面称赞用户相关问题
@@ -152,18 +152,18 @@
 - `Fixed` [#12018] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12018) 2.0广场页活跃会员点击总榜出现500错误，无法显示数据
 - `Fixed` [#12057] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/12057) 2.0在编辑圈子图片时，保存提示异常
 
-## v2.0.0-beta.7 - _2014-04-10T11:16:19.000+08:00_
+## v2.0.0-beta.7 - _2014-4-10_
 - `Fixed` [#11339] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11339) 2.0搜索参数需要去除空格
 - `Fixed` [#11346] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11346) 2.0圈管理员页面中，设置管理员，翻页后无法设置
 - `Fixed` [#11353] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11353) 关注列表分页异常
 - `Fixed` [#11354] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11354) 关注数值显示异常
 - `Added` [#11705] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11705) 2.0新增创建圈子功能，完善圈子修改功能
 
-## v2.0.0-beta.6 - _2014-04-03T13:14:46.000+08:00_
+## v2.0.0-beta.6 - _2014-4-3_
 - `Fixed` [#11287] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11287) 2.0中站内信数量异常 
 - `Improved` [#11289] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11289) 圈子简介中，圈管理员1.0与2.0的人员没有进行合并
 - `Improved` [#11360] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/11360) 专题页优化
 
-## v2.0.0-beta.5 - _2014-03-25T15:45:13.000+08:00_
+## v2.0.0-beta.5 - _2014-3-25_
 - `Fixed` [#10829] (http://gitlab.alibaba-inc.com/ata/atatech-kb/issues/10829) 2.0预览显示高亮，但是发出来后没有高亮
 
