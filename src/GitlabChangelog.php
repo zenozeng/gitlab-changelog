@@ -1,4 +1,6 @@
-<?php namespace ZenoZeng\GitlabChangelog
+<?php
+
+namespace GitlabChangelog;
 
 class GitlabChangelog {
 
@@ -6,18 +8,24 @@ class GitlabChangelog {
     public $repo; // repo path with namespace (eg. ata/atatech-kb)
     public $token; // private token
     public $debug = false;
-    public $ignoreMilestone = function($milestone) {
-        return false;
-    }
-    public $getLabels = function($issue) {
-        return $issue->labels;
+    public $milestoneFilter;
+    public $getLabels;
+
+    public function __construct()
+    {
+        $this->milestoneFilter = function($milestone) {
+            return true;
+        };
+        $this->getLabels = function($issue) {
+            return $issue->labels;
+        };
     }
 
     private function get($arg)
     {
         $url = $this->url . 'api/v3/' . $arg;
         if($this->debug) {
-            echo $url;
+            echo $url . "\n";
         }
         if(strripos($url, '?') !== FALSE) {
             $url .= '&';
@@ -30,8 +38,8 @@ class GitlabChangelog {
 
     private function getRepo()
     {
-        return array_pop(array_filter(get('projects'), function($repo) {
-            return $repo->path_with_namespace === REPO;
+        return array_pop(array_filter($this->get('projects'), function($repo) {
+            return $repo->path_with_namespace === $this->repo;
         }));
     }
 
@@ -42,7 +50,7 @@ class GitlabChangelog {
         $per_page = 100;
         $issues = [];
         while(true) {
-            $next = get('projects/' . $repo->id . '/issues?page=' . $page . '&per_page=' . $per_page);
+            $next = $this->get('projects/' . $repo->id . '/issues?page=' . $page . '&per_page=' . $per_page);
             $count = count($next);
             $issues = array_merge($issues, $next);
             $page++;
@@ -58,7 +66,7 @@ class GitlabChangelog {
     // recent milestones has lower index
     private function getMilestones($repo)
     {
-        return array_reverse(get('projects/'. $repo->id . '/milestones'));
+        return array_reverse($this->get('projects/'. $repo->id . '/milestones'));
     }
 
     public function markdown()
@@ -73,14 +81,20 @@ class GitlabChangelog {
                 return $issue->milestone->id == $milestone->id;
             });
 
-            if(count($milestone_issues) === 0 || ($this->ignoreMilestone($milestone))) {
+            if(count($milestone_issues) === 0) {
+                return "";
+            }
+
+            // don't use this->milestoneFilter(milestone)
+            // it's lambda!
+            if(!call_user_func($this->milestoneFilter, $milestone)) {
                 return "";
             }
 
             $text = array_map(function($issue) use ($repo) {
 
-                $labels = $this->getLabels($issue);
-                $labels = join($labels, ', ');
+                $labels = call_user_func($this->getLabels, $issue);
+                $labels = implode(', ', $labels);
                 $str = "- `$labels` [#$issue->id] ";
                 $str .= "(" . $this->url . $repo->path_with_namespace . "/issues/" . $issue->id . ") ";
                 $str .= $issue->title;
