@@ -1,0 +1,11 @@
+{
+    "name": "zenozeng/gitlab-changelog",
+    "description": "A simple php script to generate changelog via gitlab API v3",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zeno Zeng"
+        }
+    ],
+    "require": {}
+}

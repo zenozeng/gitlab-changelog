@@ -1,4 +1,4 @@
 gitlab-changelog
 ================
 
-A php script to generate changelog via gitlab api
+A php script to generate changelog via gitlab api v3
