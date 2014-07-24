@@ -55,6 +55,12 @@ file_put_contents("changelog.md", $markdown);
 ?>
 ```
 
+Run:
+```shell
+composer install
+php index.php
+```
+
 ## 关于 PSR-4
 
 http://culttt.com/2014/05/07/create-psr-4-php-package/
