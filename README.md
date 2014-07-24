@@ -9,7 +9,7 @@ composer.json:
 ```json
 {
     "require": {
-        "zenozeng/gitlab-changelog": "0.1.0"
+        "zenozeng/gitlab-changelog": "0.1.1"
     }
 }
 ```
