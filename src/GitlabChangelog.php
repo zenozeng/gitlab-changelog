@@ -63,10 +63,22 @@ class GitlabChangelog {
         }));
     }
 
-    // recent milestones has lower index
     private function getMilestones($repo)
     {
-        return array_reverse($this->get('projects/'. $repo->id . '/milestones'));
+        $milestones = $this->get('projects/'. $repo->id . '/milestones');
+
+        usort($milestones, function($a, $b)
+        {
+            $date = strcmp($b->due_date, $a->due_date);
+
+            if ($date != 0) {
+                return $date;
+            }
+
+            return strcmp($b->title, $a->title);
+
+        });
+        return $milestones;
     }
 
     public function markdown()
@@ -95,15 +107,22 @@ class GitlabChangelog {
 
                 $labels = call_user_func($this->getLabels, $issue);
                 $labels = implode(', ', $labels);
-                $str = "- `$labels` [#$issue->id] ";
+                $tag = call_user_func($this->getTag, $issue);
+                $str = "- `".$labels."` [#".$issue->id."] ";
                 $str .= "(" . $this->url . $repo->path_with_namespace . "/issues/" . $issue->id . ") ";
-                $str .= $issue->title;
+                $str .= $tag.$issue->title;
                 return $str;
             }, $milestone_issues);
 
             $date = date_parse($milestone->due_date);
-            $text = "## " . $milestone->title . " - _" . $date["year"] . "-" . $date["month"] . "-" . $date["day"] . "_\n" . join($text, "\n") . "\n\n";
-            return $text;
+            $res = "## " . $milestone->title;
+
+            if ($milestone->state === "active") {
+                $res .= " (Unreleased)";
+            }
+
+            $res .= " - _" . $date["year"] . "-" . $date["month"] . "-" . $date["day"] . "_\n" . join($text, "\n") . "\n\n";
+            return $res;
         }, $milestones);
         $markdown = "# Changelog\n\n" . join($markdown, "");
         return $markdown;
