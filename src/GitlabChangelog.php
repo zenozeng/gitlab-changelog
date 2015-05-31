@@ -101,7 +101,7 @@ class GitlabChangelog {
                 return $str;
             }, $milestone_issues);
 
-            $date = date_parse($milestone->created_at);
+            $date = date_parse($milestone->due_date);
             $text = "## " . $milestone->title . " - _" . $date["year"] . "-" . $date["month"] . "-" . $date["day"] . "_\n" . join($text, "\n") . "\n\n";
             return $text;
         }, $milestones);
