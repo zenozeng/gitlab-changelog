@@ -38,9 +38,11 @@ class GitlabChangelog {
 
     private function getRepo()
     {
-        return array_pop(array_filter($this->get('projects'), function($repo) {
-            return $repo->path_with_namespace === $this->repo;
-        }));
+        $projects = $this->get('projects');
+        $filteredProjects = array_filter($projects, function($repo) {
+             return $repo->path_with_namespace === $this->repo;
+        });
+        return array_pop($filteredProjects);
     }
 
     // issues (recent issues has lower index)
