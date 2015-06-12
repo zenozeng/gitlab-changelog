@@ -39,7 +39,9 @@ class GitlabChangelog {
     private function getRepo()
     {
         $projects = $this->get('projects');
+        die(print_r($projects, true));
         $filteredProjects = array_filter($projects, function($repo) {
+             echo "Checking ".$repo->path_with_namespace.PHP_EOL;
              return $repo->path_with_namespace === $this->repo;
         });
         return array_pop($filteredProjects);
@@ -48,6 +50,9 @@ class GitlabChangelog {
     // issues (recent issues has lower index)
     private function getIssues($repo)
     {
+        if (!isset($repo) || !isset($repo->id)) {
+            throw new \Exception("Repo not found", 404);
+        }
         $page = 1;
         $per_page = 100;
         $issues = [];
