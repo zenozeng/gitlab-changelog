@@ -38,7 +38,10 @@ class GitlabChangelog {
 
     private function getRepo()
     {
-        $projects = $this->get('projects');
+        $page = 1;
+        $per_page = 100;
+
+        $projects = $this->get('projects?page=' . $page . '&per_page=' . $per_page);
         //die(print_r($projects, true));
         $filteredProjects = array_filter($projects, function($repo) {
              echo "Checking ".$repo->path_with_namespace.PHP_EOL;
