@@ -124,8 +124,8 @@ class GitlabChangelog {
                 $labels = call_user_func($this->getLabels, $issue);
                 $labels = implode(', ', $labels);
                 $tag = call_user_func($this->getTag, $issue);
-                $str = "- `".$labels."` [#".$issue->id."] ";
-                $str .= "(" . $this->url . $repo->path_with_namespace . "/issues/" . $issue->id . ") ";
+                $str = "- `".$labels."` [#".$issue->iid."] ";
+                $str .= "(" . $this->url . $repo->path_with_namespace . "/issues/" . $issue->iid . ") ";
                 $str .= $tag.$issue->title;
                 return $str;
             }, $milestone_issues);
