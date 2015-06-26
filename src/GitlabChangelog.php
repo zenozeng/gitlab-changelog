@@ -38,14 +38,25 @@ class GitlabChangelog {
 
     private function getRepo()
     {
-        return array_pop(array_filter($this->get('projects'), function($repo) {
-            return $repo->path_with_namespace === $this->repo;
-        }));
+        $page = 1;
+        $per_page = 100;
+
+        $projects = $this->get('projects?page=' . $page . '&per_page=' . $per_page);
+        //die(print_r($projects, true));
+        $filteredProjects = array_filter($projects, function($repo) {
+             echo "Checking ".$repo->path_with_namespace.PHP_EOL;
+             return $repo->path_with_namespace === $this->repo;
+        });
+        return array_pop($filteredProjects);
     }
 
     // issues (recent issues has lower index)
     private function getIssues($repo)
     {
+        if (!isset($repo) || !isset($repo->id)) {
+            echo "Repo not found".PHP_EOL;
+            return null;
+        }
         $page = 1;
         $per_page = 100;
         $issues = [];
@@ -63,16 +74,33 @@ class GitlabChangelog {
         }));
     }
 
-    // recent milestones has lower index
     private function getMilestones($repo)
     {
-        return array_reverse($this->get('projects/'. $repo->id . '/milestones'));
+        $milestones = $this->get('projects/'. $repo->id . '/milestones');
+
+        usort($milestones, function($a, $b)
+        {
+            $date = strcmp($b->due_date, $a->due_date);
+
+            if ($date != 0) {
+                return $date;
+            }
+
+            return strcmp($b->title, $a->title);
+
+        });
+        return $milestones;
     }
 
     public function markdown()
     {
         $repo = $this->getRepo();
         $issues = $this->getIssues($repo);
+
+        if (!$issues) {
+            return null;
+        }
+
         $milestones = $this->getMilestones($repo);
 
         $markdown = array_map(function($milestone) use ($issues, $milestones, $repo) {
@@ -95,15 +123,22 @@ class GitlabChangelog {
 
                 $labels = call_user_func($this->getLabels, $issue);
                 $labels = implode(', ', $labels);
-                $str = "- `$labels` [#$issue->id] ";
-                $str .= "(" . $this->url . $repo->path_with_namespace . "/issues/" . $issue->id . ") ";
-                $str .= $issue->title;
+                $tag = call_user_func($this->getTag, $issue);
+                $str = "- `".$labels."` [#".$issue->iid."] ";
+                $str .= "(" . $this->url . $repo->path_with_namespace . "/issues/" . $issue->iid . ") ";
+                $str .= $tag.$issue->title;
                 return $str;
             }, $milestone_issues);
 
-            $date = date_parse($milestone->created_at);
-            $text = "## " . $milestone->title . " - _" . $date["year"] . "-" . $date["month"] . "-" . $date["day"] . "_\n" . join($text, "\n") . "\n\n";
-            return $text;
+            $date = date_parse($milestone->due_date);
+            $res = "## " . $milestone->title;
+
+            if ($milestone->state === "active") {
+                $res .= " (Unreleased)";
+            }
+
+            $res .= " - _" . $date["year"] . "-" . $date["month"] . "-" . $date["day"] . "_\n" . join($text, "\n") . "\n\n";
+            return $res;
         }, $milestones);
         $markdown = "# Changelog\n\n" . join($markdown, "");
         return $markdown;
